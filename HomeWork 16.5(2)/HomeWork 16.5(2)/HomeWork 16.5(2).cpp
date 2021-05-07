@@ -4,25 +4,25 @@
 using namespace std;
 
 int main() {
-	int n, m, N, sum = 0;
+	int N, sum = 0;
 	cout << "N: ";
 	cin >> N;
 	time_t t;
 	time(&t);
 	int k = (localtime(&t)->tm_mday) % N;
 	cout << "Size massiv: ";
-	cin >> n >> m;
-	int ** a = new int*[n];
-	for (int i = 0; i < n; i++)
-		a[i] = new int[m];
+	cin >> N;
+	int ** a = new int*[N];
+	for (int i = 0; i < N; i++)
+		a[i] = new int[N];
 	cout << "Elements massiv:\n";
-	for (int i = 0; i < n; i++)
-		for (int j = 0; j < m; j++) {
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++) {
 			cin >> a[i][j];
 			if (i == k) sum += a[i][j];
 		}
 	cout << "The amount elements" << k << " = " << sum;
-	for (int i = 0; i < n; i++)
+	for (int i = 0; i < N; i++)
 		delete[]a[i];
 	delete[] a;
 	return 0;
